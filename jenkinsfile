@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        CONTAINER_REGISTRY= "docker.io"
+        // CONTAINER_REGISTRY= credentials('')
         CONTAINER_REPOSITORY= "hoangvtn"
         APPLICATION_SOURCE_URL = 'https://github.com/vohoang1711/jenkins_lab.git'
         APPLICATION_NAME = "jenkins"
@@ -27,7 +27,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                withDockerRegistry([credentialsId: "CONTAINER_REGISTRY", url: ""]) {
+                withDockerRegistry([credentialsId: "docker-credential", url: ""]) {
                     sh "docker build -t ${CONTAINER_REPOSITORY}/${APPLICATION_NAME}:${GIT_COMMIT} ${CONTAINER_BUILD_CONTEXT}"
                     sh "docker push ${CONTAINER_REPOSITORY}/${APPLICATION_NAME}:${GIT_COMMIT}"
                 }
@@ -36,6 +36,7 @@ pipeline {
         stage('Deploy') { 
             steps {
                 echo 'Deploying....'
+                echo 'Hello'
             }
         }
     }
