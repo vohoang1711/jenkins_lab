@@ -3,9 +3,9 @@ pipeline {
 
     environment {
         CONTAINER_REGISTRY= "docker.io"
-        CONTAINER_REPOSITORY= "freddieentity"
-        APPLICATION_SOURCE_URL = 'https://github.com/freddieentity/nginx-service.git'
-        APPLICATION_NAME = "nginx-service"
+        CONTAINER_REPOSITORY= "hoangvtn"
+        APPLICATION_SOURCE_URL = 'https://github.com/vohoang1711/jenkins_lab.git'
+        APPLICATION_NAME = "jenkins"
         CONTAINER_BUILD_CONTEXT = "."
         // CONTAINER_REGISTRY_USER    = credentials('CONTAINER_REGISTRY_USER')
         // CONTAINER_REGISTRY_PASSWORD    = credentials('CONTAINER_REGISTRY_PASSWORD')
